@@ -5,20 +5,12 @@
 # DATE CREATED:  9 Marh 2021                                
 # REVISED DATE:  9 March 2021
 # PURPOSE: A ETL script to process two datasets with Disaster and Categories messages and store in a database
-#      
 #
-#  Usage:
-#         1. Create a new object with the class Benford, with an numpy array or list, or
-#         2. Load a dataset with the method: load_dataset(args) or
-#         3. Load an image with the method: load_image(args)
-#         4. Analyze the data with the mehtod: apply_benford(args)
-#         5. Plot the results or export to a file
-#         6. Export the results to a file
+#  Usage: python3 process_data.py messages_filepath  categories_filepath database_filename
+#
 #
 
 # Imports python modules
-
-
 
 import sys
 import pandas as pd
@@ -91,7 +83,6 @@ def clean_data(df):
     df.drop_duplicates(inplace=True)
 
     return df
-
 
 
 def save_data(df, database_filename):
