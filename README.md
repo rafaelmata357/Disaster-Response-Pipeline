@@ -1,10 +1,15 @@
-# Understanding the Boston Airbnb market for 2016-2017 Period
+# Disaster Response Pipeline
+
+## Project Motivation
+
+As part of the Udacity Data Science nanodegree this project is to analyze disaster data from [Figure Eight](https://www.figure-eight.com/) to build a model for an API that classifies disaster messages
+
 
 ## Installation:
 
 Clone the repository to the local machine
 
-`$ git clone https://github.com/rafaelmata357/Data-Science-Udacity/tree/master/Airbnb`
+`$ gh repo clone rafaelmata357/Disaster-Response-Pipeline`
 
 This notebook uses this libraries
 
@@ -23,9 +28,7 @@ The geojson file for Boston can be found [here](http://data.insideairbnb.com/uni
 The python version used: **3.8**
 
 
-## Project Motivation
 
-As part of the Udacity Data Science nanodegree this is an analyzis of the Boston´s airnbnb dataset using the CRISPM methodology and publish an article with the findings.
 
 
 ## Files in the repository
