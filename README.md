@@ -2,7 +2,7 @@
 
 ## Project Motivation
 
-As part of the Udacity Data Science nanodegree this project is to analyze disaster data from [Figure Eight](https://www.figure-eight.com/) to build a model for an API that classifies disaster messages
+As part of the Udacity Data Science nanodegree this project analyzes disaster data from [Figure Eight](https://www.figure-eight.com/) to build a model for an API that classifies disaster messages
 
 
 ## Installation:
@@ -11,32 +11,31 @@ Clone the repository to the local machine
 
 `$ gh repo clone rafaelmata357/Disaster-Response-Pipeline`
 
-This notebook uses this libraries
+These libraries are used
 
 - pandas
 - numpy 
-- matplotlib
-- seaborn 
+- flask
 - nltk
-- wordcloud
+- json
 - sklearn
-- folium
-
-The Airnbn dataset for Boston can be found [here](https://www.kaggle.com/airbnb/boston)
-The geojson file for Boston can be found [here](http://data.insideairbnb.com/united-states/ma/boston/2020-10-24/visualisations/neighbourhoods.geojson)
+- flask
+- sqlalchemy
 
 The python version used: **3.8**
 
-
-
-
-
 ## Files in the repository
 
-- airbnb_V2.ipynb : Jupyter notebook with the source code for the analysis
 - README.md : This file
+- disaster_categories.csv : CSV file containning the different messages categories
+- disaster_messages.csv : CSV file containning the different disaster messages
+- process_data.py : ETL Python script to load, process, clean and store in a database the messages and categories
+- train_classifier.py : Machine learning pipeline to train and classify the messages
+- run.py: Python script to run the web app
+- go.html : HTML file
+- master.html : HTML file
 
-### Instructions:
+## Instructions to run the app:
 1. Run the following commands in the project's root directory to set up your database and model.
 
     - To run ETL pipeline that cleans data and stores in database
@@ -53,7 +52,7 @@ The python version used: **3.8**
 
 ## How To Interact With Your Project 
 
-- The Jupyter notebook in this repository follows the CRISPM methodology:
+- The project in this repository follows the CRISPM methodology:
 
 1. Business Understanding
 
