@@ -29,11 +29,13 @@ The python version used: **3.8**
 - README.md : This file
 - disaster_categories.csv : CSV file containning the different messages categories
 - disaster_messages.csv : CSV file containning the different disaster messages
+- DisasterMessages.db : SQL Database with the messages and their categories
 - process_data.py : ETL Python script to load, process, clean and store in a database the messages and categories
 - train_classifier.py : Machine learning pipeline to train and classify the messages
 - run.py: Python script to run the web app
 - go.html : HTML file
 - master.html : HTML file
+
 
 ## Instructions to run the app:
 1. Run the following commands in the project's root directory to set up your database and model.
