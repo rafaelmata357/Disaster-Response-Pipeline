@@ -1,8 +1,36 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+#
+# PROGRAMMER:    Rafael Mata M.
+# DATE CREATED:  12 Marh 2021                                
+# REVISED DATE:  12 March 2021
+# PURPOSE: A ML Pipeline script to predict Categories form disastern messages and store in a file
+#
+#  Usage: python3 process_data.py messages_filepath  categories_filepath database_filename
+#
+#
+
+# Imports python modules
+
 import sys
+import json
+import pandas as pd
+import re
+
+from nltk.stem import WordNetLemmatizer
+from nltk.tokenize import word_tokenize
+
+#from sklearn.externals import joblib
+from sqlalchemy import create_engine
+import nltk
+from nltk.corpus import stopwords
 
 
 def load_data(database_filepath):
-    pass
+    ''' Function to read and load a database into a data frame '''
+
+    engine = create_engine('sqlite:///'.foramt(database_filepath))
+    df = pd.read_sql('SELECT * FROM MESSAGES', engine)
 
 
 def tokenize(text):
