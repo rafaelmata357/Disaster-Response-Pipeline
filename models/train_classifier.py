@@ -27,7 +27,13 @@ from nltk.corpus import stopwords
 
 
 def load_data(database_filepath):
-    ''' Function to read and load a database into a data frame '''
+    ''' Function to read and load a database into a data frame 
+    
+        Params:
+        -------
+        atabase_filepath: str, file path of the database   
+        
+    '''
 
     engine = create_engine('sqlite:///'.foramt(database_filepath))
     df = pd.read_sql('SELECT * FROM MESSAGES', engine)
