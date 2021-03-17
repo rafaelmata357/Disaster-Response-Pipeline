@@ -31,12 +31,18 @@ def load_data(database_filepath):
     
         Params:
         -------
-        atabase_filepath: str, file path of the database   
+        database_filepath: str, file path of the database   
+
+        Returns:
+        --------
+        df : pandas data frame
         
     '''
 
     engine = create_engine('sqlite:///'.foramt(database_filepath))
     df = pd.read_sql('SELECT * FROM MESSAGES', engine)
+
+    returns df
 
 
 def tokenize(text):
