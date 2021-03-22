@@ -3,7 +3,7 @@
 #
 # PROGRAMMER:    Rafael Mata M.
 # DATE CREATED:  12 Marh 2021                                
-# REVISED DATE:  19 March 2021
+# REVISED DATE:  22 March 2021
 # PURPOSE: A ML Pipeline script to predict Categories form disastern messages and store in a file
 #
 #  Usage: python3 train_classifier.py database_filename
@@ -135,13 +135,15 @@ def evaluate_model(model, X_test, Y_test, category_names):
         None
     
     '''
+    
+    # predict on test data
+    y_pred = pipeline.predict(X_test)
+    print('accuracy {}'.format((y_pred == Y_test.values).mean()))
 
-    print('accuracy {}'.format((y_pred == y_test.values).mean()))
-
-    for i in range(len(y_test.values[0,:])):
-    print('Target: {}'.format(category_names[i]))
-    print('--'*30)
-    print(classification_report(y_test.values[:,i], y_pred[:,i]))
+    for i in range(len(Y_test.values[0,:])):
+        print('Target: {}'.format(category_names[i]))
+        print('--'*30)
+        print(classification_report(Y_test.values[:,i], y_pred[:,i]))
 
     return None
 
