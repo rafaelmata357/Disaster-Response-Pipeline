@@ -15,6 +15,7 @@
 import json
 import pandas as pd
 import re
+import sys
 
 from nltk.stem import WordNetLemmatizer
 from nltk.tokenize import word_tokenize
@@ -51,7 +52,7 @@ def load_data(database_filepath):
     '''
 
     
-    engine = create_engine('sqlite:///{}'.format(database_path))
+    engine = create_engine('sqlite:///{}'.format(database_filepath))
     df = pd.read_sql('SELECT * FROM MESSAGES', engine)
     X = df.message
     y = df.iloc[:,4:]
@@ -137,7 +138,7 @@ def evaluate_model(model, X_test, Y_test, category_names):
     '''
     
     # predict on test data
-    y_pred = pipeline.predict(X_test)
+    y_pred = model.predict(X_test)
     print('accuracy {}'.format((y_pred == Y_test.values).mean()))
 
     for i in range(len(Y_test.values[0,:])):
@@ -162,7 +163,7 @@ def save_model(model, model_filepath):
         None
     '''
 
-    joblib.dump(pipeline, model_filepath, compress = 1)
+    joblib.dump(model, model_filepath, compress = 1)
 
     return None
 
