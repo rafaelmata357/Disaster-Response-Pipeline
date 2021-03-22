@@ -1,36 +1,64 @@
 import json
 import plotly
 import pandas as pd
-
+import re
 from nltk.stem import WordNetLemmatizer
 from nltk.tokenize import word_tokenize
+
 
 from flask import Flask
 from flask import render_template, request, jsonify
 from plotly.graph_objs import Bar
-from sklearn.externals import joblib
+import joblib
 from sqlalchemy import create_engine
-
+from nltk.corpus import stopwords
 
 app = Flask(__name__)
 
 def tokenize(text):
+    '''Fucntion to tokenize and clean the text
+    
+       Params:
+       -------
+       text : str, the text message
+
+       Returns:
+       -------
+       clean_token: list, with the clean tokens
+    '''
+
+        
+    # Normalize text
+    text = re.sub(r"[^a-zA-Z0-9]", " ", text.lower())
+
+    # tokenize text
     tokens = word_tokenize(text)
+    
+    # Remove stop words
+    tokens = [w for w in tokens if w not in stopwords.words('english')]
+    
+    # initiate lemmatizer
     lemmatizer = WordNetLemmatizer()
 
+    # iterate through each token
     clean_tokens = []
     for tok in tokens:
-        clean_tok = lemmatizer.lemmatize(tok).lower().strip()
+        
+        # lemmatize, normalize case, and remove leading/trailing white space
+        clean_tok = lemmatizer.lemmatize(tok).strip()
+       
+    
         clean_tokens.append(clean_tok)
 
     return clean_tokens
 
 # load data
-engine = create_engine('sqlite:///../data/YourDatabaseName.db')
-df = pd.read_sql_table('YourTableName', engine)
+database_filepath = '../data/salida.db'
+engine = create_engine('sqlite:///{}'.format(database_filepath))
+df = pd.read_sql('SELECT * FROM MESSAGES', engine)
 
 # load model
-model = joblib.load("../models/your_model_name.pkl")
+model = joblib.load("../models/model1.pck")
 
 
 # index webpage displays cool visuals and receives user input text for model
