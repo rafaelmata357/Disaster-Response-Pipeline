@@ -53,12 +53,12 @@ def tokenize(text):
     return clean_tokens
 
 # load data
-database_filepath = '../data/salida.db'
+database_filepath = '../data/DisasterMessages.db'
 engine = create_engine('sqlite:///{}'.format(database_filepath))
 df = pd.read_sql('SELECT * FROM MESSAGES', engine)
 
 # load model
-model = joblib.load("../models/model1.pck")
+model = joblib.load("../models/model.pkl")
 
 
 # index webpage displays cool visuals and receives user input text for model
@@ -67,13 +67,27 @@ model = joblib.load("../models/model1.pck")
 def index():
     
     # extract data needed for visuals
-    # TODO: Below is an example - modify to extract data for your own visuals
+    # 
     genre_counts = df.groupby('genre').count()['message']
     genre_names = list(genre_counts.index)
+    categories = df.iloc[:,4:]
+
+    #Calculate the mean by category counts
+    category_mean = categories.mean().sort_values(ascending=False)
+    category_names = category_mean.index
+
+    #Calculate the average
+    messages = df[['message','genre']].copy()
+    messages['men_len'] = messages['message'].apply(lambda x: len(x))
+
+    messages_mean = messages.groupby('genre')['men_len'].mean()
+    genre_name = messages_mean.index
+
     
     # create visuals
-    # TODO: Below is an example - modify to create your own visuals
+    # 
     graphs = [
+        # Graph #1 Distribution by Genre
         {
             'data': [
                 Bar(
@@ -86,6 +100,45 @@ def index():
                 'title': 'Distribution of Message Genres',
                 'yaxis': {
                     'title': "Count"
+                },
+                'xaxis': {
+                    'title': "Genre"
+                }
+            }
+        },
+        # Graph #2 Distribution by Categories
+         {
+            'data': [
+                Bar(
+                    x=category_names,
+                    y=category_mean
+                )
+            ],
+
+            'layout': {
+                'title': 'Distribution by Categories',
+                'yaxis': {
+                    'title': "%"
+                },
+                'xaxis': {
+                    'title': "Categories",
+                    'tickangle': 35
+                }
+            }
+        },
+        # Graph #3 Average message length by genre
+        {
+            'data': [
+                Bar(
+                    x=genre_name,
+                    y=messages_mean
+                )
+            ],
+
+            'layout': {
+                'title': 'Average message length by Genre',
+                'yaxis': {
+                    'title': "Chars"
                 },
                 'xaxis': {
                     'title': "Genre"
