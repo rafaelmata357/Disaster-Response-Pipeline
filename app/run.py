@@ -1,3 +1,18 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+#
+# PROGRAMMER:    Rafael Mata M.
+# DATE CREATED:  9 Marh 2021                                
+# REVISED DATE:  23 March 2021
+# PURPOSE: A flask web app to run the disaster messages classifier
+#
+#  Usage: python run.py
+#
+#
+
+# Imports python modules
+
+
 import json
 import plotly
 import pandas as pd
