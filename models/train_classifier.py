@@ -20,7 +20,7 @@ import sys
 from nltk.stem import WordNetLemmatizer
 from nltk.tokenize import word_tokenize
 
-#from sklearn.externals import joblib
+
 from sqlalchemy import create_engine
 import nltk
 from nltk.corpus import stopwords
