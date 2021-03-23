@@ -172,7 +172,7 @@ def save_model(model, model_filepath):
         None
     '''
     
-    #Save the file as pickle and compress
+    #Save the model as pickle and compress
 
     joblib.dump(model, model_filepath, compress = ('bz2',9))
 
