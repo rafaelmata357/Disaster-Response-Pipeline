@@ -21,6 +21,9 @@ These libraries are used
 - sklearn
 - flask
 - sqlalchemy
+- re
+- sys
+- joblib
 
 The python version used: **3.8**
 
