@@ -37,7 +37,7 @@ The python version used: **3.8**
 - master.html : HTML file
 - fig1,fig2, fig3 : jpeg files containing screen shots with output examples
 - messages_db.db : SQLite with the messages
-- model.pkl : pkfile with the optimize model
+- model.pkl : pickle file with the optimize model
 
 
 ## Instructions to run the app:
