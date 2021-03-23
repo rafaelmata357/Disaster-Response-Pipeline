@@ -35,6 +35,9 @@ The python version used: **3.8**
 - run.py: Python script to run the web app
 - go.html : HTML file
 - master.html : HTML file
+- fig1,fig2, fig3 : jpeg files containing screen shots with output examples
+- messages_db.db : SQLite with the messages
+- model.pkl : pkfile with the optimize model
 
 
 ## Instructions to run the app:
@@ -109,7 +112,7 @@ The python version used: **3.8**
 
 ## Terms of use:
 
-This notebook is not a formal study, is an initial analyzis and is made only to show how to use the CRISP Methodology to understand a dataset and answer questions related to the Boston  Airbnb market, . 
+This app is not a formal tool to classify disaster messages, is a project to show how to use a supervised ML Pipeline to classify messages.
 
 ## License:
 
