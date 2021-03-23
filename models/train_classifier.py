@@ -3,10 +3,10 @@
 #
 # PROGRAMMER:    Rafael Mata M.
 # DATE CREATED:  12 Marh 2021                                
-# REVISED DATE:  22 March 2021
+# REVISED DATE:  23 March 2021
 # PURPOSE: A ML Pipeline script to predict Categories form disastern messages and store in a file
 #
-#  Usage: python3 train_classifier.py database_filename
+#  Usage: python3 train_classifier.py database_filename model_filepath
 #
 #
 
@@ -118,7 +118,16 @@ def build_model():
         ('clf', MultiOutputClassifier(RandomForestClassifier(n_estimators=200)))
     ])
 
-    return pipeline
+    parameters = {'vect__max_df': (0.5, 0.75, 1.0),
+              'vect__max_features': (None, 5000, 10000),
+              'tfidf__use_idf': (True, False),
+              'clf__estimator__n_estimators': [50, 100, 200],
+              'clf__estimator__min_samples_split': [2, 3, 4]
+             }
+
+    cv = GridSearchCV(pipeline, param_grid=parameters)
+
+    return cv
 
 
 def evaluate_model(model, X_test, Y_test, category_names):
