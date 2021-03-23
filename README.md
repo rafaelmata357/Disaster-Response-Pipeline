@@ -58,19 +58,16 @@ The python version used: **3.8**
 
 1. Business Understanding
 
-    - Starting in august 2008 Airbnb  an American company  introduced an app for online lodging disrupting the market,  primarily for home stays  this app offers  the house owners the opportunity to rent available house rooms and give the guests different tourism experiences, this model has increased year over year and Boston is not the exception
+    - Following a disaster millions of messages are generated via direct or via social media, and sent  asking for help or support during the events when the organizations have a reduce capacity to filter, process and attend the most important ones, classifying in different categories the messages (water, energy, infrastructure, etc) to be attended by the right organization, this process could be optimized using Machine learning to classify the messages.
 
 2. Data Understanding
-    - The dataset contains three tables:
-        - Listings : with the listings offering, contains 3585 listings for 25 neighborehoods with more than 90 features 
-        - Calendar : with the listings availability, contains more than 643000 entries
-        - Reviews  : with the listings reviews, contains more than 68000 reviews
+    - The dataset are pre-labeled messages in 36 categories, there are two datasets:
+        - messages: a dataset containing 26248 messages from different sources: direct, social media or news 
+        - categories : label data for each messages containing 36 posible categories
+       
     - Different descriptive statistics are used for EDA and data visualization:
-        - Histograms
-        - WordClouds
-        - Choroplet maps
-        - Box plots
-        - Heat Maps
+        - Histograms to analyze the different messages genres ![alt text](https://github.com/rafaelmata357/Disaster-Response-Pipeline/blob/main/Fig%201.png 'Messages distribution by genre')
+       
 
 3. Data preparation
     - A data cleaning process is followed including:
