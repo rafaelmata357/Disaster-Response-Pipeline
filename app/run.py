@@ -73,7 +73,7 @@ engine = create_engine('sqlite:///{}'.format(database_filepath))
 df = pd.read_sql('SELECT * FROM MESSAGES', engine)
 
 # load model
-model = joblib.load("../models/model.pkl")
+model = joblib.load("../models/model_out_pkl.bz2")
 
 
 # index webpage displays cool visuals and receives user input text for model
