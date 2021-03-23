@@ -94,7 +94,7 @@ The python version used: **3.8**
         - TfidfTransformer
         - MultiOutputClassifier
            - RandomForestClassifier algorithm is used for the classification
-        - Grid search is used to improve the model with the best parameters
+        - GridSearchCV is used to find the best parameters for the model.
  
     - The data is splitted in two parts:
         - A trainning dataset containing the 80% of the data
