@@ -82,6 +82,10 @@ def clean_data(df):
     # drop duplicates
     df.drop_duplicates(inplace=True)
 
+    # For related category values = 2, remove it, due the fact that the messages is not in english
+
+    df = df[df.related != 2]
+
     return df
 
 
