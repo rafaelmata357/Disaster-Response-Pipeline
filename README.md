@@ -66,7 +66,8 @@ The python version used: **3.8**
         - categories : label data for each messages containing 36 posible categories
        
     - Different descriptive statistics are used for EDA and data visualization:
-        - Histograms to analyze the different messages genres ![alt text](https://github.com/rafaelmata357/Disaster-Response-Pipeline/blob/main/Fig%201.png 'Messages distribution by genre')
+        - Histogram to analyze the different messages genres ![alt text](https://github.com/rafaelmata357/Disaster-Response-Pipeline/blob/main/Fig%201.png 'Messages distribution by genre')
+        - Histogram to analyze the messages classification by category ![alt text](https://github.com/rafaelmata357/Disaster-Response-Pipeline/blob/main/Fig%202.png 'Messages distribution by category label')
        
 
 3. Data preparation
