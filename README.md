@@ -52,7 +52,7 @@ The python version used: **3.8**
 
 
 
-## How To Interact With Your Project 
+## How To Interact With the Project 
 
 - The project in this repository follows the CRISPM methodology:
 
@@ -68,33 +68,43 @@ The python version used: **3.8**
     - Different descriptive statistics are used for EDA and data visualization:
         - Histogram to analyze the different messages genres ![alt text](https://github.com/rafaelmata357/Disaster-Response-Pipeline/blob/main/Fig%201.png 'Messages distribution by genre')
         - Histogram to analyze the messages classification by category ![alt text](https://github.com/rafaelmata357/Disaster-Response-Pipeline/blob/main/Fig%202.png 'Messages distribution by category label')
+
+    From the data above is clear that there is a data unbalance, the related, aid-related, weeather-related and direct concetrate most of the messages categories, it could be a good idea to increase the dataset messages to balance the different messages categories and have a better model.
        
 
 3. Data preparation
-    - A data cleaning process is followed including:
-        - Removed columns with unique values
-        - Inputing: the NaN values are filled with the most common value for categorical features, and the average for numerical features
-        - Remove the outliers
-        - Codify the categorical features
-        - Use NLTK library to extract the main feature from the transit and neighborhood description columns
+    - An ETL pipeline is used:
+        - Read the datasets
+        - Merge the datasets
+        - Split the categories
+        - Convert the categories to numbers (0 or 1)
+        - Remove the duplicates
+        - Save the clean dataset into a SQLite database
 
 4. Data Modeling
-    - To model a linear regression two methods are used:
-        - Linear regression
-        - Random Forest regression
-    - The dataset is normalized using Min-Max scaler
+    - A Machile learning pipeline is used, containing:
+        - Vectorizer, using a tokenizer
+            - normalize text
+            - word tokenize
+            - remove stop words
+            - lemmatize
+        - TfidfTransformer
+        - MultiOutputClassifier
+           - RandomForestClassifier algorithm is used for the classification
+        - Grid search is used to improve the model with the best parameters
+ 
     - The data is splitted in two parts:
         - A trainning dataset containing the 80% of the data
         - A test dataset containing the 20% of the data
 
 5. Evaluate the Results
     - The results are evaluated using three metrics:
-        - MAS Error
-        - MSE Error
-        - R2 Score
+        - Precision
+        - Recall
+        - f1 score
 
 6. Deploy
-    - The Deploy is an article posted in [medium](https://medium.com/) and can be found [here](https://rafaelmata357.medium.com/a-guide-tour-to-the-boston-airbnbs-market-d7689ddf9d6c)
+    - The Deploy is a flask web app, where a message can be written and get the message categories, also some statistics about the dataset is showed, this the main app screen:  ![alt text](https://github.com/rafaelmata357/Disaster-Response-Pipeline/blob/main/Fig%203.png 'Main app screen')
 
 
 ## Terms of use:
